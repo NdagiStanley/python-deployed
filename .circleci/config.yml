@@ -1,0 +1,22 @@
+jobs:
+  lint-test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          command: |
+            flake8 .
+          name: Lint
+      - run:
+          command: |
+            python test_hello.py
+          name: Test
+orbs:
+  python: circleci/python@1.4.0
+version: 2.1
+workflows:
+  main:
+    jobs:
+      - lint-test
