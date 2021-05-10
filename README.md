@@ -11,7 +11,7 @@ New to Python? Start [here](https://www.python.org/about/gettingstarted).
 More?
 
 - [Awesome Python](https://awesome-python.com/) list
-- Feel free to check out my [All things Python](https://gist.github.com/NdagiStanley/bf9db623e8a96ef2ab631a28c9a1eba8) gist.
+- Feel free to check out my [All things Python](https://gist.github.com/NdagiStanley/bf9db623e8a96ef2ab631a28c9a1eba8) gist
 
 ## Run server
 
