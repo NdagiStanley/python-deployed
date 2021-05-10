@@ -1,12 +1,17 @@
 # python-deployed
 
-> _Anything with an * (asterisk) is explained at the very end._
-
 Exploring different ways to deploy a Python application.
+
+> _Anything with an * (asterisk) is explained at the very end._
+>
+> *Shout out!* **Andrew T Baker** gave [this talk on PyCon 2017](https://youtu.be/vGphzPLemZE) from which a number of the options and mostly the Pros and Cons tables come from.
 
 New to Python? Start [here](https://www.python.org/about/gettingstarted).
 
-Feel free to check out my [All things Python](https://gist.github.com/NdagiStanley/bf9db623e8a96ef2ab631a28c9a1eba8) gist.
+More?
+
+- [Awesome Python](https://awesome-python.com/) list
+- Feel free to check out my [All things Python](https://gist.github.com/NdagiStanley/bf9db623e8a96ef2ab631a28c9a1eba8) gist.
 
 ## Run server
 
@@ -54,7 +59,9 @@ Server running at [localhost:5000](http://localhost:5000)
 
     > Steps
 
-    - Install `gunicorn`
+    - Install [gunicorn](https://gunicorn.org/)
+
+      alternative: [uvicorn](https://www.uvicorn.org/) (ASGI server)
 
         ```bash
         pip install gunicorn
@@ -140,6 +147,30 @@ Server running at [localhost:5000](http://localhost:5000)
         gunicorn hello:app --log-file - --bind 0.0.0.0:80 # -b :80
         ```
 
+1. Digital Ocean
+
+    The manual approach (w/o Docker [_see below **#6**_]), configuring the server environment directly.
+
+    > Steps
+
+    - Create Droplet
+    - SSH into Droplet
+    - In the shell, run: (_Ubuntu 20_)
+
+        ```bash
+        cd /var
+        sudo su
+        apt update
+        apt install python3-pip python3-venv -y
+        pip3 install --upgrade pip
+        git clone https://github.com/NdagiStanley/python-deployed.git
+        cd python-deployed
+        python3 -m venv venv
+        source venv/bin/activate
+        pip3 install -r requirements.txt
+        gunicorn hello:app --log-file - --bind 0.0.0.0:80 # -b :80
+        ```
+
 1. Docker
 
     | Pros                  | Cons                  |
@@ -175,30 +206,6 @@ Server running at [localhost:5000](http://localhost:5000)
     - Go to **<DROPLET_IP>:5000** on your browser
 
     To share the credentials for `docker-machine` (with a team mate, for example) use [machine-share](https://github.com/bhurlow/machine-share) (installable via `npm install -g machine-share`) but this only works if you created the machine using `docker-machine` in the first place.
-
-1. Digital Ocean
-
-    The manual approach (w/o Docker), configuring the server environment directly
-
-    > Steps
-
-    - Create Droplet
-    - SSH into Droplet
-    - In the shell, run: (_Ubuntu 20_)
-
-        ```bash
-        cd /var
-        sudo su
-        apt update
-        apt install python3-pip python3-venv -y
-        pip3 install --upgrade pip
-        git clone https://github.com/NdagiStanley/python-deployed.git
-        cd python-deployed
-        python3 -m venv venv
-        source venv/bin/activate
-        pip3 install -r requirements.txt
-        gunicorn hello:app --log-file - --bind 0.0.0.0:80 # -b :80
-        ```
 
 ---
 
