@@ -211,4 +211,4 @@ Server running at [localhost:5000](http://localhost:5000)
 
 ### Reference
 
-- **alternatives*** - _[My python virtual environment notes](https://gist.github.com/NdagiStanley/bf9db623e8a96ef2ab631a28c9a1eba8#file-pyenv-md)_
+- **alternatives*** - _[My python virtual environment notes](https://gist.github.com/NdagiStanley/bf9db623e8a96ef2ab631a28c9a1eba8#file-virtual_envs-md)_
