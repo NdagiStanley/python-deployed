@@ -20,7 +20,7 @@ jobs:
       - heroku/install
       - heroku/deploy-via-git
 orbs:
-  python: circleci/python@1.4.0
+  python: circleci/python@2.2.0
   heroku: circleci/heroku@1.2.6
 version: 2.1
 workflows:
